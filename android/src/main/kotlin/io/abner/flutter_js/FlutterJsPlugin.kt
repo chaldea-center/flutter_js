@@ -9,7 +9,6 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
 import android.os.Looper
 import android.os.Handler
 // import fi.iki.elonen.NanoHTTPD
@@ -48,14 +47,6 @@ class FlutterJsPlugin : FlutterPlugin, MethodCallHandler {
     // depending on the user's project. onAttachedToEngine or registerWith must both be defined
     // in the same class.
     companion object {
-
-
-        @JvmStatic
-        fun registerWith(registrar: Registrar) {
-            val instance = FlutterJsPlugin()
-            instance.onAttachedToEngine(registrar.context(), registrar.messenger())
-        }
-
         var jsEngineMap = mutableMapOf<Int, JSEngine>()
     }
 
